@@ -66,7 +66,7 @@ class UtkSystem(object):
             # we are in the chield process, well done
             # install signal handler
             signal.signal(signal.SIGUSR1, UtkSystem.signal_handler)
-            if signal.signal(signal.SIGUSR1) == UtkSystem.signal_handler:
+            if signal.getsignal(signal.SIGUSR1) == UtkSystem.signal_handler:
                 l.warning("Usertk started with PID: %d", os.getpid())
                 self.run()
             else:
