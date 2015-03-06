@@ -56,7 +56,7 @@ class LogConsumer(Thread):
                 break
             for p in self.plugins:
                 try:
-                    p.processEntry(entry)
+                    p.process_entry(entry)
                 except Exception, e:
                     config.LOGGER.error("Plugin %s raise exception: %s", p, e)
             self.q.task_done()
