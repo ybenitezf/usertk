@@ -23,9 +23,7 @@ class LogProducer(Thread):
         try:
             st = Parserstatus.get(Parserstatus.id == config.SITE_ID)
         except DoesNotExist:
-            st = Parserstatus()
-            st.offset = 0
-            st.save()
+            st = Parserstatus.create(offset=0)
             config.LOGGER.warning("Initializing paser status record")
         self.p.seek(st.offset)
 
