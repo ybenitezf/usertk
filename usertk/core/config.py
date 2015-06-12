@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from peewee import PostgresqlDatabase, MySQLDatabase, SqliteDatabase
+from pydal import DAL
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'
 
@@ -26,13 +26,14 @@ PLUGS = []
 # uncomment one of this and edit the apropiate values
 
 # DONT USE THIS
-DATABASE = SqliteDatabase(':memory:')
+DATABASE = DAL('sqlite://storage.db')
 
+# see http://web2py.com/books/default/chapter/29/06/the-database-abstraction-layer#Connection-strings--the-uri-parameter-
+# for a complete list of supported databases
 # for postgres (Recommended) install psycopg2
-# DATABASE = PostgresqlDatabase('usertk', user="postgres", password="secret", host="localhost", port=5432)
-
+# DATABASE = DAL('postgres://username:password@localhost/test')
 # for MySQL install MySQLdb or pymysql
-# DATABASE = MySQLDatabase('usertk', user="myuser", passwd="secret", host="localhost", port=3307)
+# DATABASE = DAL('mysql://username:password@localhost/test')
 
 # don't change this if you don't know what are u doing
 LOGGER = logging.getLogger('usertk')

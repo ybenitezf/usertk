@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from Queue import Queue
 from threading import Thread
-from peewee import DoesNotExist
 from core import config
 from core.models import Parserstatus
 from libs.parser import Parser
@@ -20,10 +19,10 @@ class LogProducer(Thread):
         self.q = queue
         self.p = parser
         # load old parser status or initialize it
-        try:
-            st = Parserstatus.get(Parserstatus.id == config.SITE_ID)
-        except DoesNotExist:
-            st = Parserstatus.create(offset=0)
+        ps = Parserstatus()
+        st = ps.get(config.SITE_ID)
+        if not st:
+            st = ps.insert(offset=0)
             config.LOGGER.warning("Initializing paser status record")
         self.p.seek(st.offset)
 

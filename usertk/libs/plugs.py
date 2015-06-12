@@ -51,8 +51,7 @@ class ParserStatusUpdater(LogProcessPlugin):
 
     def process_entry(self, entry):
         assert isinstance(entry, squid.LogEntry)
-        status = Parserstatus.get(Parserstatus.id == config.SITE_ID)
-        status.offset = entry.offset
-        status.lastdate = entry.timeStamp
-        status.save()
-        config.LOGGER.debug('Updaing parser status OS: %d', status.offset)
+        ps = Parserstatus()
+        status = ps.get(config.SITE_ID)
+        ps.update(id=status.id, offset=entry.offset, lastdate=entry.timeStamp)
+        config.LOGGER.debug('Updaing parser status OS: %d', entry.offset)
