@@ -30,11 +30,12 @@ class LogProducer(Thread):
         while True:
             # get a log entry and put in the queue
             try:
-                self.q.put(self.p.nextEntry())
+                entry = self.p.nextEntry()
+                self.q.put(entry)
+                config.LOGGER.debug("Job: %s QUEUE", entry)
             except ValueError:
                 self.q.put(None)
                 break
-
 
 class LogConsumer(Thread):
 
@@ -57,3 +58,4 @@ class LogConsumer(Thread):
                 except Exception, e:
                     config.LOGGER.error("Plugin %s raise exception: %s", p, e)
             self.q.task_done()
+            config.LOGGER.debug("Job: %s DONE", entry)

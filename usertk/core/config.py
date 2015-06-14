@@ -23,11 +23,10 @@ EXCLUDES = '/etc/usertk/excludes.txt'
 # for example: PLUGS = ['myplug1', 'myplus.mplug2']
 PLUGS = []
 
-# uncomment one of this and edit the apropiate values
+# configure database:
 
-# DONT USE THIS
-DATABASE = DAL('sqlite://storage.db')
-
+# DONT USE THIS IN PRODUCTION
+DATABASE = DAL('sqlite:///tmp/storage.db')
 # see http://web2py.com/books/default/chapter/29/06/the-database-abstraction-layer#Connection-strings--the-uri-parameter-
 # for a complete list of supported databases
 # for postgres (Recommended) install psycopg2
@@ -35,12 +34,15 @@ DATABASE = DAL('sqlite://storage.db')
 # for MySQL install MySQLdb or pymysql
 # DATABASE = DAL('mysql://username:password@localhost/test')
 
+# configure debug level
+# for posible values see: https://docs.python.org/2.7/library/logging.html#logging-levels
+level = logging.WARNING
+
 # don't change this if you don't know what are u doing
 LOGGER = logging.getLogger('usertk')
 __ch = logging.FileHandler(LOG)
-LOGGER.setLevel(logging.WARNING)
-__ch.setLevel(logging.WARNING)
-__formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(module)s - %(message)s',
-   '%m/%d/%Y %I:%M:%S %p')
+LOGGER.setLevel(level)
+__ch.setLevel(level)
+__formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(module)s:%(lineno)d:%(message)s')
 __ch.setFormatter(__formatter)
 LOGGER.addHandler(__ch)

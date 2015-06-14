@@ -48,18 +48,8 @@ class Parser(object):
             offset = self.lfn.tell()
             # if get EOF wait until new lines come
             if not line:
-                l.info('Sleeping 10 sec.')
+                l.debug('Waiting for more log entrys...sleep 10s')
                 time.sleep(10)
             else:
                 break
         return offset, line
-
-    def closeOperations(self):
-        """Close the log file and return current offset"""
-        offset = -1
-        if self.lfn:
-            offset = self.lfn.tell()
-        self.lfn.close()
-        # return -1 if log file was closed, current offset ow
-        l.warning('closing log file in offset %d', offset)
-        return offset
