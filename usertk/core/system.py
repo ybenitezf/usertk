@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from Queue import Queue
 import sys
-from core import config
-from core.process import LogProducer, LogConsumer
-from libs.parser import Parser
-from core.daemon import Daemon
+from usertk.core import config
+from usertk.core.process import LogProducer, LogConsumer
+from usertk.libs.parser import Parser
+from usertk.core.daemon import Daemon
 
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'

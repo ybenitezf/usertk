@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 from pydal import DAL, Field
-from core import config
+from usertk.core import config
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'
 

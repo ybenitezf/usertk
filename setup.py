@@ -48,8 +48,8 @@ for dirpath, dirnames, filenames in os.walk(usertk_dir):
 
 setup(
     name = 'usertk',
-    version = '0.3.0',
-    description = 'Log processing System for SQUID',
+    version = '0.1',
+    description = 'UserTK tools for Squid-proxy cache',
     author = 'Yoel Benitez Fonseca',
     author_email = 'ybenitezf@gmail.com',
     url = 'https://github.com/ybenitezf',

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from Queue import Queue
 from threading import Thread
-from core import config
-from core.models import Parserstatus
-from libs.parser import Parser
-from libs.plugs import LogProcessPlugin
+from usertk.core import config
+from usertk.core.models import Parserstatus
+from usertk.libs.parser import Parser
+from usertk.libs.plugs import LogProcessPlugin
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'
 

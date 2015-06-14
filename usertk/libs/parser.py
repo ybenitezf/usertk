@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
-from core import config
-from libs.squid import LogEntry
+from usertk.core import config
+from usertk.libs.squid import LogEntry
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'
 

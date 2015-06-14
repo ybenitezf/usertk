@@ -3,9 +3,9 @@
 
 http://martyalchin.com/2008/jan/10/simple-plugin-framework/
 """
-from core import config
-from core.models import Parserstatus
-from libs import excludes, squid
+from usertk.core import config
+from usertk.core.models import Parserstatus
+from usertk.libs import excludes, squid
 
 __author__ = 'Yoel Benítez Fonseca <ybenitezf@gmail.com>'
 
