@@ -52,4 +52,4 @@ sudo su -m proxy -c usertk-control.py --restart
 ```
 ## Troubleshooting
 
-See `/var/log/usertk/usertk.log`, and change `level` in /etc/usertk/config.py to get more verbosity out of `UserTK`
+See `/var/log/usertk/usertk.log`, and change `level` in `/etc/usertk/config.py` to get more verbosity out of `UserTK`
